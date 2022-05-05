@@ -162,7 +162,8 @@ int fast_matrix_exp(matrix mat_a, long long exp, matrix mat_res) {
         matrix_multiplication(mat_fac, mat_fac, mat_temp);
         delete_matrix(mat_fac);
         mat_fac = copy_matrix(mat_temp);
-        exp = floor(exp / 2);
+        // exp = floor(exp / 2); //c++无floor重载,double类型有精度损失
+        exp>>=1; 
     }
     delete_matrix(mat_fac);
     delete_matrix(mat_temp);
