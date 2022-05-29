@@ -67,9 +67,9 @@ clean:
 
 ​		本次作业中最显而易见的问题为vector<Card>里的Card对象无法体现多态性。对于这个问题的发现，我先分别在BigBossCard和ExchangeCard的`effect`方法的最后添加了`std::cout<<"The effect of BigBossCard"<<std::endl;`语句和`std::cout<<"The effect of ExchangeCard"<<std::endl;`语句，并将*main.cpp*修改为如下（仅用于测试）：
 
-![image-20220529171744418](C:/Users/OS/AppData/Roaming/Typora/typora-user-images/image-20220529171744418.png)		最后在命令行使用`make`命令运行了程序，最终程序运行结果如下：
+![image-20220529171744418](https://s2.loli.net/2022/05/29/peYt1nQMmN8PWGa.png)		最后在命令行使用`make`命令运行了程序，最终程序运行结果如下：
 
-![image-20220529171804104](C:/Users/OS/AppData/Roaming/Typora/typora-user-images/image-20220529171804104.png)
+![image-20220529171804104](https://s2.loli.net/2022/05/29/sESQlhMZo2jDVuJ.png)
 
 ​		可以看出调用`effect`方法时，尽管获取到的Card是子类对象，但实际上也无法调用子类的effect方法，vector<Card> 会导致object slicing使派生类的effect被擦掉。
 
